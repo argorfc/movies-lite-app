@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply bg-red-200;
+    font-family: 'Heebo-Regular', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
+  }
+}
+
+@font-face {
+  font-family: "Heebo-Thin";
+  font-weight: 100;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-Thin'), url(@/assets/fonts/Heebo/Heebo-Thin.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Heebo-ExtraLight";
+  font-weight: 200;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-ExtraLight'), url(@/assets/fonts/Heebo/Heebo-Extra-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Heebo-Light";
+  font-weight: 300;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-Light'), url(@/assets/fonts/Heebo/Heebo-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Heebo-Regular";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-Regular'), url(@/assets/fonts/Heebo/Heebo-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Heebo-Medium";
+  font-weight: 500;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-Medium'), url(@/assets/fonts/Heebo/Heebo-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Heebo-SemiBold";
+  font-weight: 600;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-SemiBold'), url(@/assets/fonts/Heebo/Heebo-SemiBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Heebo-Bold";
+  font-weight: 700;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-Bold'), url(@/assets/fonts/Heebo/Heebo-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Heebo-ExtraBold";
+  font-weight: 800;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-ExtraBold'), url(@/assets/fonts/Heebo/Heebo-ExtraBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Heebo-Black";
+  font-weight: 900;
+  font-style: normal;
+  font-display: auto;
+  src: local('Heebo-Black'), url(@/assets/fonts/Heebo/Heebo-Black.ttf) format('truetype');
+}
+
