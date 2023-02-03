@@ -3,6 +3,8 @@ import Login from "@/views/Login.vue"
 import Home from "@/views/Home.vue"
 import Dashboard from "@/layout/Dashboard.vue"
 import NotFound from "@/views/NotFound.vue"
+import Movies from "@/views/Movies/Movies.vue"
+import MovieDetail from "@/views/Movies/MovieDetail.vue"
 
 const canUserAccess = (to: any) => {
   if (to) return true
@@ -22,6 +24,16 @@ const router = createRouter({
           path: "/home",
           name: "Home",
           component: Home,
+        },
+        {
+          path: "/admin/movies",
+          name: "Movies",
+          component: Movies,
+        },
+        {
+          path: "/admin/movie/:id",
+          name: "MovieDetail",
+          component: MovieDetail,
         }
       ]
     },

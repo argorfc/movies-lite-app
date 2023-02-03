@@ -9,6 +9,16 @@
   }
 }
 
+@layer components {
+  #app,
+  #container {
+    @apply flex;
+    @apply flex-row;
+    @apply w-full;
+    @apply min-h-screen;
+  }
+}
+
 @layer utilities {
   .content-auto {
     content-visibility: auto;
