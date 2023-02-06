@@ -1,0 +1,31 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Spiderman (2002)",
+      "description": "After being bitten by a genetically-modified spider, a shy teenager gains spider-like abilities that he uses to fight injustice as a masked superhero and face a vengeful enemy.",
+      "duration": 120,
+      "genre": "Action",
+      "stars": "Tobey Maguire, Kirsten Dunst, Willem Dafoe",
+      "url": "https://www.imdb.com/title/tt0145487/"
+    },
+    {
+      "id": 2,
+      "title": "Spiderman 2 (2004)",
+      "description": "Peter Parker is beset with troubles in his failing personal life as he battles a brilliant scientist named Doctor Otto Octavius.",
+      "duration": 120,
+      "genre": "Action",
+      "stars": "Tobey Maguire, Kirsten Dunst, Alfred Molina",
+      "url": "https://www.imdb.com/title/tt0316654/"
+    },
+    {
+      "title": "Spiderman 3",
+      "description": "Description of Spiderman 3",
+      "duration": "112",
+      "stars": "Saya, Kamu, Anda",
+      "genre": "Action",
+      "id": 3,
+      "url": "https://www.imdb.com/title/tt0413300/"
+    }
+  ]
+}

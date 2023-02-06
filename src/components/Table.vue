@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const props = withDefaults(
+    defineProps<{
+      data: any[];
+    }>(),
+    {}
+)
 </script>
 
 <template>
@@ -22,41 +28,47 @@
                   Duration
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  Artists
+                  stars
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  Genres
+                  Genre
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  URL
+                  Link Movie
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+              <template v-if="props.data.length > 0">
+                <tr
+                  v-for="(movie, index) in data"
+                  class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                  :key="index"
+                >
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  1
+                  {{ index + 1 }}
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Spiderman 3
+                  {{ movie.title }}
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  120 minutes
+                  {{ movie.description }}
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  A strange black entity from another world bonds with Peter Parker and causes inner turmoil as he contends with new villains, temptations, and revenge.
+                  {{ movie.duration }} minutes
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Tobey Maguire, 	Kirsten Dunst, 	James Franco
+                  {{ movie.stars }}
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Actions
+                  {{ movie.genre }}
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  https://www.imdb.com/title/tt0413300/
+                  {{ movie.url }}
                 </td>
-              </tr>
+                </tr>
+              </template>
+              <tr v-else>No data movies found.</tr>
             </tbody>
           </table>
         </div>
