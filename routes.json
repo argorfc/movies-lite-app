@@ -1,0 +1,5 @@
+{
+  "/api/*": "/$1",
+  "/movie/views": "/movieViews",
+  "/movie/genres": "/movieGenres"
+}

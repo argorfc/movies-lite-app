@@ -6,7 +6,7 @@ import ModalCommon from "@/components/Modal.vue"
 import FormMovie from "@/components/FormMovie.vue"
 import axios from "axios";
 
-const baseURL = "http://localhost:3001/movies";
+const baseURL = import.meta.env.VITE_APP_BASE_URL_API + "/movies";
 const initialFormState = {
   title: '',
   description: '',
@@ -15,17 +15,22 @@ const initialFormState = {
   genre: ''
 };
 const showModal = ref(false);
+const isEditable = ref(false);
 let movies = ref([]);
 let formAddMovie = reactive({...initialFormState})
 
-const fetchMovies = onMounted(async () => {
-  try {
-      const res = await axios.get(baseURL);
-      movies.value = res.data;
-    } catch (e) {
-      console.error(e);
-    }
+const initPageMovie = onMounted(() => {
+  fetchMovies()
 })
+
+const fetchMovies = async () => {
+  try {
+    const res = await axios.get(baseURL);
+    movies.value = res.data;
+  } catch (e) {
+    console.error(e);
+  }
+}
 
 const onModalCreateShow = (payload: any) => {
   showModal.value = !payload
@@ -44,10 +49,18 @@ const onModalCreateSubmit = async () => {
       const payload = {
         ...formAddMovie
       }
-      const res = await axios.post(baseURL, payload);
-      movies.value = [...movies.value, res.data]
+      if (!isEditable.value) {
+        const res = await axios.post(baseURL, payload);
+        movies.value = [...movies.value, res.data]
+      } else {
+        const res = await axios.put(`${baseURL}/${payload?.id}`, payload);
+        console.log('res', res);
+        isEditable.value = false;
+        fetchMovies()
+      }
       showModal.value = !showModal.value
       formAddMovie = {...initialFormState}
+      
     } catch (e) {
       console.error(e);
     }
@@ -68,6 +81,17 @@ const checkValidForm = () => {
   return isValid;
 }
 
+const onClickEditAction = (payload: any) => {
+  showModal.value = true;
+  isEditable.value = true;
+  formAddMovie = {...payload}
+}
+
+const onCloseModalCreate = () => {
+  formAddMovie = {...initialFormState}
+  showModal.value = false
+}
+
 </script>
 
 <template>
@@ -82,17 +106,17 @@ const checkValidForm = () => {
             @onClick="onModalCreateShow(showModal)"
           />
         </div>
-        <table-movies :data="movies" />
+        <table-movies :data="movies" @onEdit="onClickEditAction" />
       </div>
     </div>
     <modal-common
       :show="showModal"
       title="Add Movie"
-      @onClose="showModal = false"
+      @onClose="onCloseModalCreate"
       @onSubmit="onModalCreateSubmit"
     >
     <slot name="body">
-      <form-movie @formChange="onChangeFormMovie" />
+      <form-movie @formChange="onChangeFormMovie" :movie="formAddMovie" :isEditable="isEditable" />
     </slot>
     </modal-common>
   </div>

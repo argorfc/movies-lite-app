@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Spiderman (2002)",
       "description": "After being bitten by a genetically-modified spider, a shy teenager gains spider-like abilities that he uses to fight injustice as a masked superhero and face a vengeful enemy.",
-      "duration": 120,
+      "duration": "200",
       "genre": "Action",
       "stars": "Tobey Maguire, Kirsten Dunst, Willem Dafoe",
       "url": "https://www.imdb.com/title/tt0145487/"
@@ -19,13 +19,27 @@
       "url": "https://www.imdb.com/title/tt0316654/"
     },
     {
-      "title": "Spiderman 3",
+      "title": "Spiderman 33333",
       "description": "Description of Spiderman 3",
       "duration": "112",
       "stars": "Saya, Kamu, Anda",
       "genre": "Action",
       "id": 3,
       "url": "https://www.imdb.com/title/tt0413300/"
+    }
+  ],
+  "movieViews": [
+    {
+      "id": 1,
+      "count": 1,
+      "movieId": 1
+    }
+  ],
+  "movieGenres": [
+    {
+      "id": 1,
+      "count": 1,
+      "movieId": 1
     }
   ]
 }

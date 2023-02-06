@@ -12,6 +12,12 @@ import router from '@/router';
       <li class="relative">
         <router-link to="/admin/movies" class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out">Movies</router-link>
       </li>
+      <li class="relative">
+        <router-link to="/admin/movie/views" class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out">Movie Views</router-link>
+      </li>
+      <li class="relative">
+        <router-link to="/admin/movie/genres" class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out">Movie Genres</router-link>
+      </li>
     </ul>
   </div>
 </template>

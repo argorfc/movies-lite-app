@@ -5,6 +5,11 @@ const props = withDefaults(
     }>(),
     {}
 )
+const emit = defineEmits(['onEdit'])
+
+const onClickEdit = (movie) => {
+  emit('onEdit', movie)
+}
 </script>
 
 <template>
@@ -36,6 +41,9 @@ const props = withDefaults(
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                   Link Movie
                 </th>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -45,27 +53,35 @@ const props = withDefaults(
                   class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
                   :key="index"
                 >
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {{ index + 1 }}
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {{ movie.title }}
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {{ movie.description }}
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {{ movie.duration }} minutes
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {{ movie.stars }}
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {{ movie.genre }}
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {{ movie.url }}
-                </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ index + 1 }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ movie.title }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ movie.description }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ movie.duration }} minutes
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ movie.stars }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ movie.genre }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    {{ movie.url }}
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <div class="flex justify-center items-center gap-2">
+                      <span
+                        class="text-blue-400 transition duration-300 ease-in-out hover:text-blue-800 cursor-pointer"
+                        @click="onClickEdit(movie)"
+                      >Edit</span>
+                    </div>
+                  </td>
                 </tr>
               </template>
               <tr v-else>No data movies found.</tr>
