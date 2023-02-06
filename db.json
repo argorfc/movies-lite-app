@@ -21,7 +21,7 @@
       "imgSrc": "https://121quotes.com/wp-content/uploads/2019/11/spider-man-desktop-background.jpg"
     },
     {
-      "title": "Spiderman 33333",
+      "title": "Spiderman 3",
       "description": "Description of Spiderman 3",
       "duration": "112",
       "stars": "Saya, Kamu, Anda",
@@ -29,6 +29,16 @@
       "id": 3,
       "url": "https://www.imdb.com/title/tt0413300/",
       "imgSrc": "https://cdn.wallpapersafari.com/79/63/xrYfRw.jpg"
+    },
+    {
+      "title": "Captain America: The First Avenger (2011)",
+      "description": "Steve Rogers, a rejected military soldier, transforms into Captain America after taking a dose of a \"Super-Soldier serum\". But being Captain America comes at a price as he attempts to take down a warmonger and a terrorist organization.",
+      "duration": "124",
+      "stars": "Christopher Markus",
+      "genre": "Action, Adventures",
+      "url": "https://www.imdb.com/title/tt0458339/",
+      "imgSrc": "https://images2.alphacoders.com/110/1105688.jpg",
+      "id": 4
     }
   ],
   "movieViews": [

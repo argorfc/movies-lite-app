@@ -4,7 +4,7 @@ import TableMovies from "@/components/Table.vue"
 import ButtonCommon from "@/components/Button.vue"
 import ModalCommon from "@/components/Modal.vue"
 import FormMovie from "@/components/FormMovie.vue"
-import {apiGetMovies} from "@/api/movies"
+import {apiGetMovies, apiPostMovieViews, apiPutMovieViews} from "@/api/movies"
 
 const initialFormState = {
   title: '',
@@ -49,15 +49,16 @@ const onModalCreateSubmit = async () => {
         ...formAddMovie
       }
       if (!isEditable.value) {
-        const res = await axios.post(baseURL, payload);
+        const res = await apiPostMovieViews(payload);
         movies.value = [...movies.value, res.data]
+        onCloseModalCreate();
       } else {
-        const res = await axios.put(`${baseURL}/${payload?.id}`, payload);
+        const res = await apiPutMovieViews(payload);
+        console.log(res);
         isEditable.value = false;
-        fetchMovies()
+        fetchMovies();
+        onCloseModalCreate();
       }
-      showModal.value = !showModal.value
-      formAddMovie = {...initialFormState}
       
     } catch (e) {
       console.error(e);
