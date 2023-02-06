@@ -3,9 +3,10 @@ import Login from "@/views/Login.vue"
 import Home from "@/views/Home.vue"
 import Dashboard from "@/layout/Dashboard.vue"
 import NotFound from "@/views/NotFound.vue"
-import Movies from "@/views/Movies/Movies.vue"
-import MovieViews from "@/views/Movies/MovieViews.vue"
-import MovieGenres from "@/views/Movies/MovieGenres.vue"
+import AdminMovies from "@/views/Admin/Movies/Movies.vue"
+import AdminMovieViews from "@/views/Admin/Movies/MovieViews.vue"
+import AdminMovieGenres from "@/views/Admin/Movies/MovieGenres.vue"
+import Movies from "@/views/Movies.vue"
 
 const canUserAccess = (to: any) => {
   if (to) return true
@@ -28,18 +29,18 @@ const router = createRouter({
         },
         {
           path: "/admin/movies",
-          name: "Movies",
-          component: Movies,
+          name: "AdminMovies",
+          component: AdminMovies,
         },
         {
           path: "/admin/movie/views",
-          name: "MovieViews",
-          component: MovieViews,
+          name: "AdminMovieViews",
+          component: AdminMovieViews,
         },
         {
           path: "/admin/movie/genres",
-          name: "MovieGenres",
-          component: MovieGenres,
+          name: "AdminMovieGenres",
+          component: AdminMovieGenres,
         }
       ]
     },
@@ -47,6 +48,11 @@ const router = createRouter({
       path: "/login",
       name: "Login",
       component: Login,
+    },
+    {
+      path: "/movies",
+      name: "Movies",
+      component: Movies,
     },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
   ]

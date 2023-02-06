@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import ListViews from "@/components/List.vue";
-import axios from "axios";
+import {apiGetMovies, apiGetMovieViews} from "@/api/movies"
 
-const baseURLViews = import.meta.env.VITE_APP_BASE_URL_API + "/movie/views";
-const baseURLMovies = import.meta.env.VITE_APP_BASE_URL_API + "/movies";
 let movieViews = ref([]);
 
 const initPageMovieViews = onMounted(() => {
@@ -13,11 +11,11 @@ const initPageMovieViews = onMounted(() => {
 
 const fetchMovieViews = async () => {
   try {
-    const resViews = await axios.get(baseURLViews);
-    const resMovies = await axios.get(baseURLMovies);
+    const resViews = await apiGetMovieViews();
+    const resMovies = await apiGetMovies();
     Promise.all([resViews, resMovies]).then(() => {
-      const views = resViews.data
-      const movies = resMovies.data
+      const views = resViews
+      const movies = resMovies
       const results = filterMoviewsByViews(movies, views)
       movieViews.value = results;
     });

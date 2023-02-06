@@ -100,7 +100,7 @@ const action = (e: any) => {
         >
       </div>
       <div class="form-group mb-6">
-        <label for="stars" class="form-label inline-block mb-2 text-gray-700">Starring (separate by comma)</label>
+        <label for="stars" class="form-label inline-block mb-2 text-gray-700">Starring</label>
         <input ref="stars" type="text" class="form-control
           block
           w-full
@@ -163,6 +163,28 @@ const action = (e: any) => {
           aria-describedby="urlHelp" placeholder="Enter url"
           :value="props.movie?.url"
           @change="(e) => onChangeInput(e, 'url')"
+        >
+      </div>
+      <div class="form-group mb-6">
+        <label for="imgSrc" class="form-label inline-block mb-2 text-gray-700">Thumbnail Image</label>
+        <input ref="imgSrc" type="text" class="form-control
+          block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-pink-600 focus:outline-none" id="imgSrc"
+          aria-describedby="imgSrcHelp" placeholder="Enter image src"
+          :value="props.movie?.imgSrc"
+          @change="(e) => onChangeInput(e, 'imgSrc')"
         >
       </div>
     </form>

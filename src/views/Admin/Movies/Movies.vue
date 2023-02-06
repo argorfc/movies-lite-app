@@ -4,9 +4,8 @@ import TableMovies from "@/components/Table.vue"
 import ButtonCommon from "@/components/Button.vue"
 import ModalCommon from "@/components/Modal.vue"
 import FormMovie from "@/components/FormMovie.vue"
-import axios from "axios";
+import {apiGetMovies} from "@/api/movies"
 
-const baseURL = import.meta.env.VITE_APP_BASE_URL_API + "/movies";
 const initialFormState = {
   title: '',
   description: '',
@@ -25,8 +24,8 @@ const initPageMovie = onMounted(() => {
 
 const fetchMovies = async () => {
   try {
-    const res = await axios.get(baseURL);
-    movies.value = res.data;
+    const res = await apiGetMovies();
+    movies.value = res;
   } catch (e) {
     console.error(e);
   }
@@ -54,7 +53,6 @@ const onModalCreateSubmit = async () => {
         movies.value = [...movies.value, res.data]
       } else {
         const res = await axios.put(`${baseURL}/${payload?.id}`, payload);
-        console.log('res', res);
         isEditable.value = false;
         fetchMovies()
       }

@@ -7,7 +7,8 @@
       "duration": "200",
       "genre": "Action",
       "stars": "Tobey Maguire, Kirsten Dunst, Willem Dafoe",
-      "url": "https://www.imdb.com/title/tt0145487/"
+      "url": "https://www.imdb.com/title/tt0145487/",
+      "imgSrc": "https://121quotes.com/wp-content/uploads/2019/11/spiderman-hd-wallpaper-1920x1080.jpg"
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "duration": 120,
       "genre": "Action",
       "stars": "Tobey Maguire, Kirsten Dunst, Alfred Molina",
-      "url": "https://www.imdb.com/title/tt0316654/"
+      "url": "https://www.imdb.com/title/tt0316654/",
+      "imgSrc": "https://121quotes.com/wp-content/uploads/2019/11/spider-man-desktop-background.jpg"
     },
     {
       "title": "Spiderman 33333",
@@ -25,7 +27,8 @@
       "stars": "Saya, Kamu, Anda",
       "genre": "Action",
       "id": 3,
-      "url": "https://www.imdb.com/title/tt0413300/"
+      "url": "https://www.imdb.com/title/tt0413300/",
+      "imgSrc": "https://cdn.wallpapersafari.com/79/63/xrYfRw.jpg"
     }
   ],
   "movieViews": [

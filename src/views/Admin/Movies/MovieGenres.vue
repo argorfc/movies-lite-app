@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import ListViews from "@/components/List.vue";
-import axios from "axios";
+import ListGenres from "@/components/List.vue";
+import {apiGetMovies, apiGetMovieViews} from "@/api/movies"
 
-const baseURLViews = import.meta.env.VITE_APP_BASE_URL_API + "/movie/genres";
-const baseURLMovies = import.meta.env.VITE_APP_BASE_URL_API + "/movies";
 let movieViews = ref([]);
 
 const initPageMovieViews = onMounted(() => {
@@ -13,12 +11,12 @@ const initPageMovieViews = onMounted(() => {
 
 const fetchMovieViews = async () => {
   try {
-    const resViews = await axios.get(baseURLViews);
-    const resMovies = await axios.get(baseURLMovies);
+    const resViews = await apiGetMovieViews();
+    const resMovies = await apiGetMovies();
     Promise.all([resViews, resMovies]).then(() => {
-      const views = resViews.data
-      const movies = resMovies.data
-      const results = filterMoviewsByViews(movies, views)
+      const views = resViews;
+      const movies = resMovies;
+      const results = filterMoviewsByViews(movies, views);
       movieViews.value = results;
     });
   } catch (e) {
@@ -45,8 +43,8 @@ const filterMoviewsByViews = (arr1: any[], arr2: any[]) => {
 <template>
   <div id="list-movie-views" class="w-full flex flex-col px-4">
     <div class="flex flex-col gap-4">
-      <h1>Movie Views</h1>
-      <list-views :movies="movieViews" />
+      <h1>Movie Genres</h1>
+      <list-genres :movies="movieViews" />
     </div>
   </div>
 </template>
